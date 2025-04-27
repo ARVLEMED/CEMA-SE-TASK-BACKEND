@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: your-backend-name
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: DATABASE_URL
+        value: your database URL (if you use PostgreSQL on Render)
